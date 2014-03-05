@@ -13,5 +13,6 @@
 *.a
 
 
-# Cython-generated files
+# Certain cython-generated files
 CythonExample/rect.cpp
+
