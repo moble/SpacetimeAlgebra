@@ -1,6 +1,6 @@
 all: GAtest
 
-CleanupLineEndings:=perl -i -p -e 's/\r$$//; s/[ \t]*$$//'
+CleanupLineEndings:=perl -i -p -e 's/[ \t\r]*$$//'
 
 SpacetimeAlgebra.cpp: SpacetimeAlgebra.xml
 	g25 SpacetimeAlgebra.xml
