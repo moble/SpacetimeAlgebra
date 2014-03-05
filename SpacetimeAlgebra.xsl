@@ -18,31 +18,44 @@
         <xsl:text>&#10;  </xsl:text>
       </xsl:if>
     </xsl:for-each>
-
-    <!-- <xsl:for-each select="1 to 8"> -->
-      <!-- <xsl:copy> -->
-      <!-- 	<xsl:apply-templates select="@* | node()" /> -->
-      <!-- 	<xsl:attribute name="arg1">vector</xsl:attribute> -->
-      <!-- </xsl:copy> -->
-    <!-- </xsl:for-each> -->
-
-    <!-- <xsl:variable name="function" select="."/> -->
-    <!-- <xsl:for-each select="$smvTypes"> -->
-      <!-- <xsl:copy select="$function"> -->
-      <!--   <xsl:attribute name="width">100</xsl:attribute> -->
-      <!--   <xsl:apply-templates select="@*|node()" /> -->
-      <!-- </xsl:copy> -->
-      <!-- <xsl:copy-of select="$function"/> -->
-      <!-- <xsl:copy-of select=".."/> -->
-      <!-- <xsl:text>&#10;</xsl:text> -->
-    <!-- </xsl:for-each> -->
-    <!-- Do something! -->
   </xsl:template>
 
-  <xsl:template match="function[@arg2='anysmv']" priority="1">Nuthin' I says!</xsl:template>
+  <xsl:template match="function[@arg2='anysmv']" priority="1">
+    <xsl:variable name="functionElement" select="."/>
+    <xsl:for-each select="1 to count($smvTypes)">
+      <function>
+	<xsl:copy-of select="$functionElement/@*"/> <!-- Copy all attributes -->
+	<xsl:attribute name="arg2">
+	  <xsl:value-of select="subsequence($smvTypes, ., 1)"/>
+	</xsl:attribute>
+      </function>
+      <xsl:if test=". &lt; count($smvTypes)">
+        <xsl:text>&#10;  </xsl:text>
+      </xsl:if>
+    </xsl:for-each>
+  </xsl:template>
 
-  <xsl:template match="function[@arg1='anysmv' and @arg2='anysmv']" priority="3">You ain't gettin' nothin'</xsl:template>
-
+  <xsl:template match="function[@arg1='anysmv' and @arg2='anysmv']" priority="2">
+    <xsl:variable name="functionElement" select="."/>
+    <xsl:for-each select="1 to count($smvTypes)">
+      <xsl:variable name="i" select="."/>
+      <xsl:for-each select="1 to count($smvTypes)">
+	<xsl:variable name="j" select="."/>
+	<function>
+	  <xsl:copy-of select="$functionElement/@*"/> <!-- Copy all attributes -->
+	  <xsl:attribute name="arg1">
+	    <xsl:value-of select="subsequence($smvTypes, $i, 1)"/>
+	  </xsl:attribute>
+	  <xsl:attribute name="arg2">
+	    <xsl:value-of select="subsequence($smvTypes, $j, 1)"/>
+	  </xsl:attribute>
+	</function>
+	<xsl:if test="$i &lt; count($smvTypes) or $j &lt; count($smvTypes)">
+          <xsl:text>&#10;  </xsl:text>
+	</xsl:if>
+      </xsl:for-each>
+    </xsl:for-each>
+  </xsl:template>
 
   <!-- This is an identity template - it copies everything
        that doesn't match another template.  Note that this is

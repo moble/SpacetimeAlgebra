@@ -48,7 +48,7 @@
   <metric name="default">gamma_1.gamma_1=gamma_2.gamma_2=gamma_3.gamma_3=1</metric>
 
   <!-- General multivectors -->
-  <mv name="multivector" compress="byGrade" coordinateOrder="default" memAlloc="full"></mv>
+  <mv name="multivector" compress="byGrade" coordinateOrder="default" memAlloc="full"/>
 
   <!-- The basic vectors -->
   <smv name="gamma_0" const="true" type="blade">gamma_0=1</smv>
@@ -99,48 +99,48 @@
   <!-- Grade extraction -->
   <!-- Note that some grades and certain combinations of grades can -->
   <!-- be extracted by the functions among the above converters. -->
-  <function name="extractGrade" arg1="multivector" /> <!-- Needed internally for the following -->
-  <function name="extractGrade0" arg1="multivector" />
-  <function name="extractGrade1" arg1="multivector" />
-  <function name="extractGrade2" arg1="multivector" />
-  <function name="extractGrade3" arg1="multivector" />
-  <function name="extractGrade4" arg1="multivector" />
+  <function name="extractGrade" arg1="anysmv" /> <!-- Needed internally for the following -->
+  <function name="extractGrade0" arg1="anysmv" />
+  <function name="extractGrade1" arg1="anysmv" />
+  <function name="extractGrade2" arg1="anysmv" />
+  <function name="extractGrade3" arg1="anysmv" />
+  <function name="extractGrade4" arg1="anysmv" />
 
   <!-- Basic vector operators -->
   <function name="add" arg1="anysmv" arg2="anysmv" />
-  <function name="subtract" arg1="anysmv" arg2="multivector" />
-  <function name="div" arg1="multivector" arg2="double" />
+  <function name="subtract" arg1="anysmv" arg2="anysmv" />
+  <function name="div" arg1="anysmv" arg2="double" />
 
   <!-- Geometric operations -->
-  <function name="gp" arg1="double" arg2="multivector" /> <!-- scalar multiplication -->
-  <function name="gp" arg1="multivector" arg2="double" /> <!-- scalar multiplication -->
-  <function name="gp" arg1="multivector" arg2="anysmv" /> <!-- geometric product -->
-  <function name="rc" arg1="multivector" arg2="multivector" /> <!-- right contraction -->
-  <function name="lc" arg1="multivector" arg2="multivector" /> <!-- left contraction -->
-  <function name="sp" arg1="multivector" arg2="multivector" /> <!-- scalar product -->
-  <function name="op" arg1="multivector" arg2="multivector" /> <!-- outer product -->
+  <function name="gp" arg1="double" arg2="anysmv" /> <!-- scalar multiplication -->
+  <function name="gp" arg1="anysmv" arg2="double" /> <!-- scalar multiplication -->
+  <function name="gp" arg1="anysmv" arg2="anysmv" /> <!-- geometric product -->
+  <function name="rc" arg1="anysmv" arg2="anysmv" /> <!-- right contraction -->
+  <function name="lc" arg1="anysmv" arg2="anysmv" /> <!-- left contraction -->
+  <function name="sp" arg1="anysmv" arg2="anysmv" /> <!-- scalar product -->
+  <function name="op" arg1="anysmv" arg2="anysmv" /> <!-- outer product -->
 
   <!-- Dualization and involutions -->
-  <function name="dual" arg1="multivector" />
+  <function name="dual" arg1="anysmv" />
   <function name="negate" arg1="anysmv" />
-  <function name="reverse" arg1="multivector" />
-  <function name="cliffordConjugate" arg1="multivector" />
-  <function name="gradeInvolution" arg1="multivector" />
+  <function name="reverse" arg1="anysmv" />
+  <function name="cliffordConjugate" arg1="anysmv" />
+  <function name="gradeInvolution" arg1="anysmv" />
 
   <!-- Norms and normalization -->
-  <function name="norm" arg1="multivector" />
-  <function name="norm2" arg1="multivector" />
-  <function name="unit" arg1="multivector" /> <!-- I believe this normalizes a multivector... -->
-  <function name="versorInverse" arg1="multivector" />
+  <function name="norm" arg1="anysmv" />
+  <function name="norm2" arg1="anysmv" />
+  <function name="unit" arg1="anysmv" /> <!-- I believe this normalizes a multivector... -->
+  <function name="versorInverse" arg1="anysmv" />
 
   <!-- Transcendental functions -->
-  <function name="sas" arg1="multivector" arg2="double" arg3="double"/> <!-- Needed internally for the following -->
+  <function name="sas" arg1="anysmv" arg2="double" arg3="double"/> <!-- Needed internally for the following -->
   <!-- <function name="log" arg1="multivector" /> --> <!-- log is only implemented for 3d Euclidean multivectors -->
-  <function name="exp" arg1="multivector" />
-  <function name="sin" arg1="multivector" />
-  <function name="cos" arg1="multivector" />
-  <function name="sinh" arg1="multivector" />
-  <function name="cosh" arg1="multivector" />
+  <function name="exp" arg1="anysmv" />
+  <function name="sin" arg1="anysmv" />
+  <function name="cos" arg1="anysmv" />
+  <function name="sinh" arg1="anysmv" />
+  <function name="cosh" arg1="anysmv" />
 
   <!-- Rotor operations -->
   <function name="applyVersor" arg1="rotor" argName1="R" arg2="vector" argName2="v" />
