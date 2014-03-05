@@ -1,60 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<xsl:transform version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:transform version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
-  <xsl:variable name="smvTypes" as="xs:string*">
-    <xsl:sequence
-	select="('multivector', 'multivector3, 'vector', 'vector3,
-		 'bivector', 'bivector3, 'rotor', 'rotor3')"/>
-  </xsl:variable>
+  <xsl:variable name="smvTypes"
+		select="'multivector', 'multivector3', 'vector', 'vector3', 'bivector', 'bivector3', 'rotor', 'rotor3'"/>
 
-  <xsl:for-each select="1 to 8">
-    <function name="Mike's" arg1="{subsequence($smvTypes, ., 1)}"/>
-  </xsl:for-each>
+  <xsl:template match="function[@arg1='anysmv']" priority="1">
+    <xsl:variable name="functionElement" select="."/>
+    <xsl:for-each select="1 to count($smvTypes)">
+      <function>
+	<xsl:copy-of select="$functionElement/@*"/> <!-- Copy all attributes -->
+	<xsl:attribute name="arg1">
+	  <xsl:value-of select="subsequence($smvTypes, ., 1)"/>
+	</xsl:attribute>
+      </function>
+      <xsl:if test=". &lt; count($smvTypes)">
+        <xsl:text>&#10;  </xsl:text>
+      </xsl:if>
+    </xsl:for-each>
 
+    <!-- <xsl:for-each select="1 to 8"> -->
+      <!-- <xsl:copy> -->
+      <!-- 	<xsl:apply-templates select="@* | node()" /> -->
+      <!-- 	<xsl:attribute name="arg1">vector</xsl:attribute> -->
+      <!-- </xsl:copy> -->
+    <!-- </xsl:for-each> -->
 
-  <!-- Define arg replacement functions -->
-  <xsl:template name="arg1_multivector" match="function[@arg1='anysmv']/@arg1">
-    <xsl:attribute name="arg1">multivector</xsl:attribute>
-  </xsl:template>
-  <xsl:template name="arg2_multivector3" match="function[@arg2='anysmv']/@arg2">
-    <xsl:attribute name="arg2">multivector3</xsl:attribute>
-  </xsl:template>
-
-  <xsl:template name="arg1_vector" match="function[@arg1='anysmv']/@arg1">
-    <xsl:attribute name="arg1">vector</xsl:attribute>
-  </xsl:template>
-  <xsl:template name="arg2_vector3" match="function[@arg2='anysmv']/@arg2">
-    <xsl:attribute name="arg2">vector3</xsl:attribute>
-  </xsl:template>
-
-  <xsl:template name="arg1_bivector" match="function[@arg1='anysmv']/@arg1">
-    <xsl:attribute name="arg1">bivector</xsl:attribute>
-  </xsl:template>
-  <xsl:template name="arg2_bivector3" match="function[@arg2='anysmv']/@arg2">
-    <xsl:attribute name="arg2">bivector3</xsl:attribute>
-  </xsl:template>
-
-  <xsl:template name="arg1_rotor" match="function[@arg1='anysmv']/@arg1">
-    <xsl:attribute name="arg1">rotor</xsl:attribute>
-  </xsl:template>
-  <xsl:template name="arg2_rotor3" match="function[@arg2='anysmv']/@arg2">
-    <xsl:attribute name="arg2">rotor3</xsl:attribute>
-  </xsl:template>
-
-
-
-  <xsl:template match="function[@arg1='anysmv']">
+    <!-- <xsl:variable name="function" select="."/> -->
+    <!-- <xsl:for-each select="$smvTypes"> -->
+      <!-- <xsl:copy select="$function"> -->
+      <!--   <xsl:attribute name="width">100</xsl:attribute> -->
+      <!--   <xsl:apply-templates select="@*|node()" /> -->
+      <!-- </xsl:copy> -->
+      <!-- <xsl:copy-of select="$function"/> -->
+      <!-- <xsl:copy-of select=".."/> -->
+      <!-- <xsl:text>&#10;</xsl:text> -->
+    <!-- </xsl:for-each> -->
     <!-- Do something! -->
   </xsl:template>
 
-  <xsl:template match="function[@arg2='anysmv']">
-    <!-- Do something! -->
-  </xsl:template>
+  <xsl:template match="function[@arg2='anysmv']" priority="1">Nuthin' I says!</xsl:template>
 
-  <xsl:template match="function[@arg1='anysmv' and @arg2='anysmv']">
-    <!-- Do something! -->
-  </xsl:template>
+  <xsl:template match="function[@arg1='anysmv' and @arg2='anysmv']" priority="3">You ain't gettin' nothin'</xsl:template>
 
 
   <!-- This is an identity template - it copies everything

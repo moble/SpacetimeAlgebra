@@ -107,14 +107,14 @@
   <function name="extractGrade4" arg1="multivector" />
 
   <!-- Basic vector operators -->
-  <function name="add" arg1="multivector" arg2="multivector" />
-  <function name="subtract" arg1="multivector" arg2="multivector" />
+  <function name="add" arg1="anysmv" arg2="anysmv" />
+  <function name="subtract" arg1="anysmv" arg2="multivector" />
   <function name="div" arg1="multivector" arg2="double" />
 
   <!-- Geometric operations -->
   <function name="gp" arg1="double" arg2="multivector" /> <!-- scalar multiplication -->
   <function name="gp" arg1="multivector" arg2="double" /> <!-- scalar multiplication -->
-  <function name="gp" arg1="multivector" arg2="multivector" /> <!-- geometric product -->
+  <function name="gp" arg1="multivector" arg2="anysmv" /> <!-- geometric product -->
   <function name="rc" arg1="multivector" arg2="multivector" /> <!-- right contraction -->
   <function name="lc" arg1="multivector" arg2="multivector" /> <!-- left contraction -->
   <function name="sp" arg1="multivector" arg2="multivector" /> <!-- scalar product -->
@@ -122,7 +122,7 @@
 
   <!-- Dualization and involutions -->
   <function name="dual" arg1="multivector" />
-  <function name="negate" arg1="multivector" />
+  <function name="negate" arg1="anysmv" />
   <function name="reverse" arg1="multivector" />
   <function name="cliffordConjugate" arg1="multivector" />
   <function name="gradeInvolution" arg1="multivector" />
