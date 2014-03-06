@@ -2,7 +2,8 @@ all: GAtest
 
 CleanupLineEndings:=perl -i -p -e 's/[ \t\r]*$$//'
 
-SpacetimeAlgebra.cpp: SpacetimeAlgebra.xml
+SpacetimeAlgebra.cpp: SpacetimeAlgebraInput.xml SpacetimeAlgebra.xsl
+	saxon -xsl:SpacetimeAlgebra.xsl -s:SpacetimeAlgebraInput.xml -o:SpacetimeAlgebra.xml
 	g25 SpacetimeAlgebra.xml
 	$(CleanupLineEndings) SpacetimeAlgebra.hpp
 	$(CleanupLineEndings) SpacetimeAlgebra.cpp
