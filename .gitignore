@@ -14,5 +14,7 @@
 
 
 # Certain cython-generated files
+spacetime.cpp
 CythonExample/rect.cpp
 
+CythonExample/XDressExample
