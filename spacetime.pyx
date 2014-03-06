@@ -1,6 +1,11 @@
 # distutils: language = c++
 # distutils: sources = SpacetimeAlgebra.cpp
 
-cdef extern from "SpacetimeAlgebra.hpp" namespace "SpacetimeAlgebra":
-    cdef cppclass Rectangle:
+cimport spacetime
 
+cdef class mv:
+    cdef spacetime.cppmv *thisptr      # hold a C++ instance which we're wrapping
+    def __cinit__(self):
+        self.thisptr = new spacetime.cppmv()
+    def __dealloc__(self):
+        del self.thisptr
