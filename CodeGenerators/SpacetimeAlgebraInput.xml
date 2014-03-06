@@ -45,6 +45,7 @@
      />
   <metric name="default">gamma_0.gamma_0=-1</metric>
   <metric name="default">gamma_1.gamma_1=gamma_2.gamma_2=gamma_3.gamma_3=1</metric>
+  <metric name="Euclidean">gamma_1.gamma_1=gamma_2.gamma_2=gamma_3.gamma_3=1</metric>
 
   <!-- General multivectors -->
   <mv name="mv" compress="byGrade" coordinateOrder="default" memAlloc="full"/>
@@ -85,27 +86,27 @@
     gamma_0^gamma_2^gamma_3
     gamma_1^gamma_2^gamma_3
   </smv>
-  <smv name="rotor" type="versor">
+  <smv name="spinor" type="versor">
     scalar
     gamma_0^gamma_1 gamma_0^gamma_2 gamma_0^gamma_3
     gamma_1^gamma_2 gamma_1^gamma_3 gamma_2^gamma_3
     gamma_0^gamma_1^gamma_2^gamma_3
   </smv>
-  <smv name="rotor3" type="versor">
+  <smv name="spinor3" type="versor">
     scalar
     gamma_1^gamma_2 gamma_1^gamma_3 gamma_2^gamma_3
   </smv>
 
   <!-- Converters between specialized types -->
-  <function name="_vector" arg1="mv"/>
-  <function name="_bivector" arg1="mv"/>
-  <function name="_rotor" arg1="mv"/>
-  <function name="_vector3" arg1="mv"/>
-  <function name="_bivector3" arg1="mv"/>
-  <function name="_rotor3" arg1="mv"/>
+  <!-- <function name="_vector" arg1="mv"/> -->
+  <!-- <function name="_bivector" arg1="mv"/> -->
+  <!-- <function name="_spinor" arg1="mv"/> -->
+  <!-- <function name="_vector3" arg1="mv"/> -->
+  <!-- <function name="_bivector3" arg1="mv"/> -->
+  <!-- <function name="_spinor3" arg1="mv"/> -->
   <function name="_vector3" arg1="vector"/>
   <function name="_bivector3" arg1="bivector"/>
-  <function name="_rotor3" arg1="rotor"/>
+  <function name="_spinor3" arg1="spinor"/>
 
   <!-- Grade extraction -->
   <!-- Note that some grades and certain combinations of grades can -->
@@ -120,16 +121,22 @@
   <!-- Basic vector operators -->
   <function name="add" arg1="anysmv" arg2="anysmv"/>
   <function name="subtract" arg1="anysmv" arg2="anysmv"/>
-  <function name="div" arg1="anysmv" arg2="double"/>
-
-  <!-- Geometric operations -->
   <function name="gp" arg1="double" arg2="anysmv"/> <!-- scalar multiplication -->
   <function name="gp" arg1="anysmv" arg2="double"/> <!-- scalar multiplication -->
-  <function name="gp" arg1="anysmv" arg2="anysmv"/> <!-- geometric product -->
-  <function name="rc" arg1="anysmv" arg2="anysmv"/> <!-- right contraction -->
-  <function name="lc" arg1="anysmv" arg2="anysmv"/> <!-- left contraction -->
+  <function name="div" arg1="anysmv" arg2="double"/> <!-- scalar division -->
+
+  <!-- Geometric operations -->
+  <function name="gp" arg1="mv" arg2="mv"/> <!-- geometric product -->
+  <function name="gp" arg1="spinor" arg2="spinor"/> <!-- geometric product -->
+  <function name="gp" arg1="spinor3" arg2="spinor3"/> <!-- geometric product -->
+  <function name="rc" arg1="mv" arg2="mv"/> <!-- right contraction -->
+  <function name="lc" arg1="mv" arg2="mv"/> <!-- left contraction -->
   <function name="sp" arg1="anysmv" arg2="anysmv"/> <!-- scalar product -->
-  <function name="op" arg1="anysmv" arg2="anysmv"/> <!-- outer product -->
+  <function name="op" arg1="mv" arg2="mv"/> <!-- outer product -->
+  <function name="op" arg1="vector" arg2="vector"/> <!-- outer product -->
+  <function name="op" arg1="vector3" arg2="vector3"/> <!-- outer product -->
+  <function name="op" arg1="bivector" arg2="bivector"/> <!-- outer product -->
+  <function name="op" arg1="bivector3" arg2="bivector3"/> <!-- outer product -->
 
   <!-- Dualization and involutions -->
   <function name="dual" arg1="anysmv4"/>
@@ -141,23 +148,23 @@
   <!-- Norms and normalization -->
   <function name="norm" arg1="anysmv"/>
   <function name="norm2" arg1="anysmv"/>
+  <function name="norm2" arg1="mv" outputName="norm2_euclidean" metric="Euclidean"/>
   <function name="unit" arg1="anysmv"/> <!-- I believe this normalizes a multivector... -->
-  <function name="versorInverse" arg1="anysmv"/>
+  <function name="versorInverse" arg1="anyssmv"/>
 
   <!-- Transcendental functions -->
   <function name="sas" arg1="anyssmv" arg2="double" arg3="double"/> <!-- Needed internally for the following -->
-  <!-- <function name="log" arg1="mv"/> --> <!-- log is only implemented for 3d Euclidean multivectors -->
-  <function name="log" arg1="mv3"/> <!-- log is only implemented for 3d Euclidean multivectors -->
-  <function name="log" arg1="rotor3"/> <!-- log is only implemented for 3d Euclidean multivectors -->
+  <function name="log" arg1="mv3" optionType="euclidean" metric="Euclidean"/> <!-- log is only implemented for 3d Euclidean multivectors -->
+  <function name="log" arg1="spinor3" optionType="euclidean" metric="Euclidean"/> <!-- log is only implemented for 3d Euclidean multivectors -->
   <function name="exp" arg1="anyssmv"/>
   <function name="sin" arg1="anyssmv"/>
   <function name="cos" arg1="anyssmv"/>
   <function name="sinh" arg1="anyssmv"/>
   <function name="cosh" arg1="anyssmv"/>
 
-  <!-- Rotor operations -->
-  <function name="applyVersor" arg1="rotor" argName1="R" arg2="vector" argName2="v"/>
-  <function name="applyUnitVersor" arg1="rotor3" argName1="R" arg2="vector3" argName2="v"/>
+  <!-- Spinor operations -->
+  <function name="applyVersor" arg1="spinor" argName1="R" arg2="vector" argName2="v"/>
+  <function name="applyUnitVersor" arg1="spinor3" argName1="R" arg2="vector3" argName2="v"/>
 
   <!-- Needed for tests -->
   <function name="random_double" outputName="genrand" optionGen="mt"/>
