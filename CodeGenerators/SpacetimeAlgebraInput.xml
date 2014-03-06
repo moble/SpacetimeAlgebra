@@ -48,7 +48,7 @@
      />
   <metric name="default">gamma_0.gamma_0=-1</metric>
   <metric name="default">gamma_1.gamma_1=gamma_2.gamma_2=gamma_3.gamma_3=1</metric>
-  <metric name="Euclidean">gamma_1.gamma_1=gamma_2.gamma_2=gamma_3.gamma_3=1</metric>
+  <metric name="Euclidean">gamma_0.gamma_0=gamma_1.gamma_1=gamma_2.gamma_2=gamma_3.gamma_3=1</metric>
 
   <!-- General multivectors -->
   <mv name="mv" compress="byGrade" coordinateOrder="default" memAlloc="full"/>
