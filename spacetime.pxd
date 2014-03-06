@@ -83,8 +83,8 @@ cdef extern from "SpacetimeAlgebra.hpp" namespace "SpacetimeAlgebra":
     cdef cppmv cppsubtract "SpacetimeAlgebra::subtract" (const cppmv &a, const cppmv &b)
     cdef cppmv cppgp "SpacetimeAlgebra::gp" (const double a, const cppmv &b)
     cdef cppmv cppgp "SpacetimeAlgebra::gp" (const cppmv &a, const double b)
-    cdef cppmv cppdiv "SpacetimeAlgebra::div" (const cppmv &a, const double b)
     cdef cppmv cppgp "SpacetimeAlgebra::gp" (const cppmv &a, const cppmv &b)
+    cdef cppmv cppdiv "SpacetimeAlgebra::div" (const cppmv &a, const double b)
     cdef cppmv cpprc "SpacetimeAlgebra::rc" (const cppmv &a, const cppmv &b)
     cdef cppmv cpplc "SpacetimeAlgebra::lc" (const cppmv &a, const cppmv &b)
     cdef double cppsp "SpacetimeAlgebra::sp" (const cppmv &a, const cppmv &b)
@@ -103,6 +103,12 @@ cdef extern from "SpacetimeAlgebra.hpp" namespace "SpacetimeAlgebra":
     cdef cppmv cppcos "SpacetimeAlgebra::cos" (const cppmv &x, int order)
     cdef cppmv cppsinh "SpacetimeAlgebra::sinh" (const cppmv &x, int order)
     cdef cppmv cppcosh "SpacetimeAlgebra::cosh" (const cppmv &x, int order)
+    ## Extract graded parts
+    cdef cppmv cppextractGrade0 "SpacetimeAlgebra::extractGrade0" (const cppmv &a)
+    cdef cppmv cppextractGrade1 "SpacetimeAlgebra::extractGrade1" (const cppmv &a)
+    cdef cppmv cppextractGrade2 "SpacetimeAlgebra::extractGrade2" (const cppmv &a)
+    cdef cppmv cppextractGrade3 "SpacetimeAlgebra::extractGrade3" (const cppmv &a)
+    cdef cppmv cppextractGrade4 "SpacetimeAlgebra::extractGrade4" (const cppmv &a)
 
 
     cdef cppclass cppgamma_0_t "SpacetimeAlgebra::gamma_0_t":
