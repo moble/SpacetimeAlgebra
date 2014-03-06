@@ -2,6 +2,7 @@
 # distutils: sources = Rectangle.cpp
 
 cimport rect
+from cython.operator cimport dereference as deref
 
 cdef class Rectangle:
     cdef rect.cppRectangle *thisptr      # hold a C++ instance which we're wrapping
@@ -17,6 +18,10 @@ cdef class Rectangle:
         return self.thisptr.getArea()
     def move(self, dx, dy):
         self.thisptr.move(dx, dy)
+    cdef add(self, Rectangle b):
+        cdef rect.cppRectangle c
+        c = self.thisptr.add(deref(b.thisptr))
+        return 0.0
     property x0:
         def __get__(self): return self.thisptr.x0
         def __set__(self, x0): self.thisptr.x0 = x0

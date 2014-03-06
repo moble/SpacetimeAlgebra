@@ -36,3 +36,7 @@ void Rectangle::move(int dx, int dy)
     x1 += dx;
     y1 += dy;
 }
+
+Rectangle Rectangle::add(const Rectangle& b) {
+  return Rectangle(x0+b.x0, y0+b.y0, x1+b.x1, y1+b.y1);
+}
