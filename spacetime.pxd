@@ -2,24 +2,24 @@ cdef extern from "SpacetimeAlgebra.hpp" namespace "SpacetimeAlgebra":
     cdef cppclass cppmv "SpacetimeAlgebra::mv":
         int m_gu
         double m_c[16]
-        mv() except +
-	    mv(const mv&A) except +
-	    mv(double scalar) except +
-	    mv(int gu, const double *coordinates) except +
-	    mv(const gamma_0_t&A) except +
-	    mv(const gamma_1_t&A) except +
-	    mv(const gamma_2_t&A) except +
-	    mv(const gamma_3_t&A) except +
-	    mv(const I_t&A) except +
-	    mv(const I3_t&A) except +
-	    mv(const mv3&A) except +
-	    mv(const vector&A) except +
-	    mv(const vector3&A) except +
-	    mv(const bivector&A) except +
-	    mv(const bivector3&A) except +
-	    mv(const pseudovector&A) except +
-	    mv(const spinor&A) except +
-	    mv(const spinor3&A) except +
+        cppmv() except +
+        cppmv(const cppmv&A) except +
+        cppmv(double scalar) except +
+        cppmv(int gu, const double *coordinates) except +
+        # cppmv(const gamma_0_t&A) except +
+        # cppmv(const gamma_1_t&A) except +
+        # cppmv(const gamma_2_t&A) except +
+        # cppmv(const gamma_3_t&A) except +
+        # cppmv(const I_t&A) except +
+        # cppmv(const I3_t&A) except +
+        # cppmv(const cppmv3&A) except +
+        # cppmv(const vector&A) except +
+        # cppmv(const vector3&A) except +
+        # cppmv(const bivector&A) except +
+        # cppmv(const bivector3&A) except +
+        # cppmv(const pseudovector&A) except +
+        # cppmv(const spinor&A) except +
+        # cppmv(const spinor3&A) except +
         double get_scalar()
 
 

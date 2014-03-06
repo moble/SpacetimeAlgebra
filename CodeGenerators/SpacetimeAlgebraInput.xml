@@ -9,8 +9,11 @@
     dimension="4"
     reportUsage="false"
     gmvCode="expand"
-    parser="builtin"
-    testSuite="true">
+    parser="builtin">
+    <!-- testSuite="true"> -->
+
+  <!-- Needed for testSuite -->
+  <!-- <function name="random_double" outputName="genrand" optionGen="mt"/> -->
 
   <customLicense>
     Licensed under the  MIT license; see LICENSE file for full details.
@@ -165,8 +168,5 @@
   <!-- Spinor operations -->
   <function name="applyVersor" arg1="spinor" argName1="R" arg2="vector" argName2="v"/>
   <function name="applyUnitVersor" arg1="spinor3" argName1="R" arg2="vector3" argName2="v"/>
-
-  <!-- Needed for tests -->
-  <function name="random_double" outputName="genrand" optionGen="mt"/>
 
 </g25spec>

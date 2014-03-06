@@ -9,3 +9,5 @@ cdef class mv:
         self.thisptr = new spacetime.cppmv()
     def __dealloc__(self):
         del self.thisptr
+    def get_scalar(self):
+        return self.thisptr.get_scalar()
