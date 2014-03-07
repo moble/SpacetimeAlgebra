@@ -363,7 +363,7 @@ cpdef versorInverse(mv a):
     cdef mv b=mv()
     b.thisptr.set(spacetime.cppversorInverse(deref(a.thisptr)))
     return b
-cpdef exp(mv a, int order=12):
+cpdef exp(mv a, int order=20):
     cdef mv b=mv()
     b.thisptr.set(spacetime.cppexp(deref(a.thisptr), order))
     return b

@@ -6,6 +6,7 @@
 */
 #include <stdio.h>
 #include <utility> // for std::swap
+#include <iostream>
 #include "SpacetimeAlgebra.hpp"
 namespace SpacetimeAlgebra {
 
@@ -365,76 +366,8 @@ void gp_euclidean_4_1_3(const double *A, const double *B, double *C);
 void gp_euclidean_4_2_2(const double *A, const double *B, double *C);
 /// Computes the partial geometric product of two multivectors (group 4  x  group 3 -> group 1)
 void gp_euclidean_4_3_1(const double *A, const double *B, double *C);
-/// Computes the partial geometric product of two multivectors (group 0  x  group 0 -> group 0)
-void gp__internal_euclidean_metric__0_0_0(const double *A, const double *B, double *C);
-/// Computes the partial geometric product of two multivectors (group 0  x  group 1 -> group 1)
-void gp__internal_euclidean_metric__0_1_1(const double *A, const double *B, double *C);
-/// Computes the partial geometric product of two multivectors (group 0  x  group 2 -> group 2)
-void gp__internal_euclidean_metric__0_2_2(const double *A, const double *B, double *C);
-/// Computes the partial geometric product of two multivectors (group 0  x  group 3 -> group 3)
-void gp__internal_euclidean_metric__0_3_3(const double *A, const double *B, double *C);
-/// Computes the partial geometric product of two multivectors (group 0  x  group 4 -> group 4)
-void gp__internal_euclidean_metric__0_4_4(const double *A, const double *B, double *C);
-/// Computes the partial geometric product of two multivectors (group 1  x  group 0 -> group 1)
-void gp__internal_euclidean_metric__1_0_1(const double *A, const double *B, double *C);
-/// Computes the partial geometric product of two multivectors (group 1  x  group 1 -> group 0)
-void gp__internal_euclidean_metric__1_1_0(const double *A, const double *B, double *C);
-/// Computes the partial geometric product of two multivectors (group 1  x  group 1 -> group 2)
-void gp__internal_euclidean_metric__1_1_2(const double *A, const double *B, double *C);
-/// Computes the partial geometric product of two multivectors (group 1  x  group 2 -> group 1)
-void gp__internal_euclidean_metric__1_2_1(const double *A, const double *B, double *C);
-/// Computes the partial geometric product of two multivectors (group 1  x  group 2 -> group 3)
-void gp__internal_euclidean_metric__1_2_3(const double *A, const double *B, double *C);
-/// Computes the partial geometric product of two multivectors (group 1  x  group 3 -> group 2)
-void gp__internal_euclidean_metric__1_3_2(const double *A, const double *B, double *C);
-/// Computes the partial geometric product of two multivectors (group 1  x  group 3 -> group 4)
-void gp__internal_euclidean_metric__1_3_4(const double *A, const double *B, double *C);
-/// Computes the partial geometric product of two multivectors (group 1  x  group 4 -> group 3)
-void gp__internal_euclidean_metric__1_4_3(const double *A, const double *B, double *C);
-/// Computes the partial geometric product of two multivectors (group 2  x  group 0 -> group 2)
-void gp__internal_euclidean_metric__2_0_2(const double *A, const double *B, double *C);
-/// Computes the partial geometric product of two multivectors (group 2  x  group 1 -> group 1)
-void gp__internal_euclidean_metric__2_1_1(const double *A, const double *B, double *C);
-/// Computes the partial geometric product of two multivectors (group 2  x  group 1 -> group 3)
-void gp__internal_euclidean_metric__2_1_3(const double *A, const double *B, double *C);
-/// Computes the partial geometric product of two multivectors (group 2  x  group 2 -> group 0)
-void gp__internal_euclidean_metric__2_2_0(const double *A, const double *B, double *C);
-/// Computes the partial geometric product of two multivectors (group 2  x  group 2 -> group 2)
-void gp__internal_euclidean_metric__2_2_2(const double *A, const double *B, double *C);
-/// Computes the partial geometric product of two multivectors (group 2  x  group 2 -> group 4)
-void gp__internal_euclidean_metric__2_2_4(const double *A, const double *B, double *C);
-/// Computes the partial geometric product of two multivectors (group 2  x  group 3 -> group 1)
-void gp__internal_euclidean_metric__2_3_1(const double *A, const double *B, double *C);
-/// Computes the partial geometric product of two multivectors (group 2  x  group 3 -> group 3)
-void gp__internal_euclidean_metric__2_3_3(const double *A, const double *B, double *C);
-/// Computes the partial geometric product of two multivectors (group 2  x  group 4 -> group 2)
-void gp__internal_euclidean_metric__2_4_2(const double *A, const double *B, double *C);
-/// Computes the partial geometric product of two multivectors (group 3  x  group 0 -> group 3)
-void gp__internal_euclidean_metric__3_0_3(const double *A, const double *B, double *C);
-/// Computes the partial geometric product of two multivectors (group 3  x  group 1 -> group 2)
-void gp__internal_euclidean_metric__3_1_2(const double *A, const double *B, double *C);
-/// Computes the partial geometric product of two multivectors (group 3  x  group 1 -> group 4)
-void gp__internal_euclidean_metric__3_1_4(const double *A, const double *B, double *C);
-/// Computes the partial geometric product of two multivectors (group 3  x  group 2 -> group 1)
-void gp__internal_euclidean_metric__3_2_1(const double *A, const double *B, double *C);
-/// Computes the partial geometric product of two multivectors (group 3  x  group 2 -> group 3)
-void gp__internal_euclidean_metric__3_2_3(const double *A, const double *B, double *C);
-/// Computes the partial geometric product of two multivectors (group 3  x  group 3 -> group 0)
-void gp__internal_euclidean_metric__3_3_0(const double *A, const double *B, double *C);
-/// Computes the partial geometric product of two multivectors (group 3  x  group 3 -> group 2)
-void gp__internal_euclidean_metric__3_3_2(const double *A, const double *B, double *C);
-/// Computes the partial geometric product of two multivectors (group 3  x  group 4 -> group 1)
-void gp__internal_euclidean_metric__3_4_1(const double *A, const double *B, double *C);
-/// Computes the partial geometric product of two multivectors (group 4  x  group 0 -> group 4)
-void gp__internal_euclidean_metric__4_0_4(const double *A, const double *B, double *C);
-/// Computes the partial geometric product of two multivectors (group 4  x  group 1 -> group 3)
-void gp__internal_euclidean_metric__4_1_3(const double *A, const double *B, double *C);
-/// Computes the partial geometric product of two multivectors (group 4  x  group 2 -> group 2)
-void gp__internal_euclidean_metric__4_2_2(const double *A, const double *B, double *C);
-/// Computes the partial geometric product of two multivectors (group 4  x  group 3 -> group 1)
-void gp__internal_euclidean_metric__4_3_1(const double *A, const double *B, double *C);
 /// Computes the partial geometric product of two multivectors (group 4  x  group 4 -> group 0)
-void gp__internal_euclidean_metric__4_4_0(const double *A, const double *B, double *C);
+void gp_euclidean_4_4_0(const double *A, const double *B, double *C);
 /// copies coordinates of group 0
 void copyGroup_0(const double *A, double *C);
 /// copies and multiplies (by s) coordinates of group 0
@@ -581,25 +514,25 @@ void dual_default_4_0(const double *A, double *C);
 /// Computes the partial undual (w.r.t. full space) of a multivector.
 void undual_default_4_0(const double *A, double *C);
 /// Computes the partial dual (w.r.t. full space) of a multivector.
-void dual__internal_euclidean_metric__0_4(const double *A, double *C);
+void dual_euclidean_0_4(const double *A, double *C);
 /// Computes the partial undual (w.r.t. full space) of a multivector.
-void undual__internal_euclidean_metric__0_4(const double *A, double *C);
+void undual_euclidean_0_4(const double *A, double *C);
 /// Computes the partial dual (w.r.t. full space) of a multivector.
-void dual__internal_euclidean_metric__1_3(const double *A, double *C);
+void dual_euclidean_1_3(const double *A, double *C);
 /// Computes the partial undual (w.r.t. full space) of a multivector.
-void undual__internal_euclidean_metric__1_3(const double *A, double *C);
+void undual_euclidean_1_3(const double *A, double *C);
 /// Computes the partial dual (w.r.t. full space) of a multivector.
-void dual__internal_euclidean_metric__2_2(const double *A, double *C);
+void dual_euclidean_2_2(const double *A, double *C);
 /// Computes the partial undual (w.r.t. full space) of a multivector.
-void undual__internal_euclidean_metric__2_2(const double *A, double *C);
+void undual_euclidean_2_2(const double *A, double *C);
 /// Computes the partial dual (w.r.t. full space) of a multivector.
-void dual__internal_euclidean_metric__3_1(const double *A, double *C);
+void dual_euclidean_3_1(const double *A, double *C);
 /// Computes the partial undual (w.r.t. full space) of a multivector.
-void undual__internal_euclidean_metric__3_1(const double *A, double *C);
+void undual_euclidean_3_1(const double *A, double *C);
 /// Computes the partial dual (w.r.t. full space) of a multivector.
-void dual__internal_euclidean_metric__4_0(const double *A, double *C);
+void dual_euclidean_4_0(const double *A, double *C);
 /// Computes the partial undual (w.r.t. full space) of a multivector.
-void undual__internal_euclidean_metric__4_0(const double *A, double *C);
+void undual_euclidean_4_0(const double *A, double *C);
 void gp_default_0_0_0(const double *A, const double *B, double *C) {
   C[0] += A[0]*B[0];
 }
@@ -822,7 +755,7 @@ void gp_euclidean_1_0_1(const double *A, const double *B, double *C) {
   C[3] += A[3]*B[0];
 }
 void gp_euclidean_1_1_0(const double *A, const double *B, double *C) {
-  C[0] += (A[1]*B[1]+A[2]*B[2]+A[3]*B[3]);
+  C[0] += (A[0]*B[0]+A[1]*B[1]+A[2]*B[2]+A[3]*B[3]);
 }
 void gp_euclidean_1_1_2(const double *A, const double *B, double *C) {
   C[0] += (A[0]*B[1]-A[1]*B[0]);
@@ -834,9 +767,9 @@ void gp_euclidean_1_1_2(const double *A, const double *B, double *C) {
 }
 void gp_euclidean_1_2_1(const double *A, const double *B, double *C) {
   C[0] += (-A[1]*B[0]-A[2]*B[1]-A[3]*B[3]);
-  C[1] += (-A[2]*B[2]-A[3]*B[4]);
-  C[2] += (A[1]*B[2]-A[3]*B[5]);
-  C[3] += (A[1]*B[4]+A[2]*B[5]);
+  C[1] += (A[0]*B[0]-A[2]*B[2]-A[3]*B[4]);
+  C[2] += (A[0]*B[1]+A[1]*B[2]-A[3]*B[5]);
+  C[3] += (A[0]*B[3]+A[1]*B[4]+A[2]*B[5]);
 }
 void gp_euclidean_1_2_3(const double *A, const double *B, double *C) {
   C[0] += (A[0]*B[2]-A[1]*B[1]+A[2]*B[0]);
@@ -847,10 +780,10 @@ void gp_euclidean_1_2_3(const double *A, const double *B, double *C) {
 void gp_euclidean_1_3_2(const double *A, const double *B, double *C) {
   C[0] += (A[2]*B[0]+A[3]*B[1]);
   C[1] += (-A[1]*B[0]+A[3]*B[2]);
-  C[2] += A[3]*B[3];
+  C[2] += (A[0]*B[0]+A[3]*B[3]);
   C[3] += (-A[1]*B[1]-A[2]*B[2]);
-  C[4] += -A[2]*B[3];
-  C[5] += A[1]*B[3];
+  C[4] += (A[0]*B[1]-A[2]*B[3]);
+  C[5] += (A[0]*B[2]+A[1]*B[3]);
 }
 void gp_euclidean_1_3_4(const double *A, const double *B, double *C) {
   C[0] += (A[0]*B[3]-A[1]*B[2]+A[2]*B[1]-A[3]*B[0]);
@@ -859,6 +792,7 @@ void gp_euclidean_1_4_3(const double *A, const double *B, double *C) {
   C[0] += -A[3]*B[0];
   C[1] += A[2]*B[0];
   C[2] += -A[1]*B[0];
+  C[3] += A[0]*B[0];
 }
 void gp_euclidean_2_0_2(const double *A, const double *B, double *C) {
   C[0] += A[0]*B[0];
@@ -870,9 +804,9 @@ void gp_euclidean_2_0_2(const double *A, const double *B, double *C) {
 }
 void gp_euclidean_2_1_1(const double *A, const double *B, double *C) {
   C[0] += (A[0]*B[1]+A[1]*B[2]+A[3]*B[3]);
-  C[1] += (A[2]*B[2]+A[4]*B[3]);
-  C[2] += (-A[2]*B[1]+A[5]*B[3]);
-  C[3] += (-A[4]*B[1]-A[5]*B[2]);
+  C[1] += (-A[0]*B[0]+A[2]*B[2]+A[4]*B[3]);
+  C[2] += (-A[1]*B[0]-A[2]*B[1]+A[5]*B[3]);
+  C[3] += (-A[3]*B[0]-A[4]*B[1]-A[5]*B[2]);
 }
 void gp_euclidean_2_1_3(const double *A, const double *B, double *C) {
   C[0] += (A[0]*B[2]-A[1]*B[1]+A[2]*B[0]);
@@ -881,34 +815,38 @@ void gp_euclidean_2_1_3(const double *A, const double *B, double *C) {
   C[3] += (A[2]*B[3]-A[4]*B[2]+A[5]*B[1]);
 }
 void gp_euclidean_2_2_0(const double *A, const double *B, double *C) {
-  C[0] += (-A[2]*B[2]-A[4]*B[4]-A[5]*B[5]);
+  C[0] += (-A[0]*B[0]-A[1]*B[1]-A[2]*B[2]-A[3]*B[3]-A[4]*B[4]-A[5]*B[5]);
 }
 void gp_euclidean_2_2_2(const double *A, const double *B, double *C) {
   C[0] += (-A[1]*B[2]+A[2]*B[1]-A[3]*B[4]+A[4]*B[3]);
   C[1] += (A[0]*B[2]-A[2]*B[0]-A[3]*B[5]+A[5]*B[3]);
-  C[2] += (-A[4]*B[5]+A[5]*B[4]);
+  C[2] += (-A[0]*B[1]+A[1]*B[0]-A[4]*B[5]+A[5]*B[4]);
   C[3] += (A[0]*B[4]+A[1]*B[5]-A[4]*B[0]-A[5]*B[1]);
-  C[4] += (A[2]*B[5]-A[5]*B[2]);
-  C[5] += (-A[2]*B[4]+A[4]*B[2]);
+  C[4] += (-A[0]*B[3]+A[2]*B[5]+A[3]*B[0]-A[5]*B[2]);
+  C[5] += (-A[1]*B[3]-A[2]*B[4]+A[3]*B[1]+A[4]*B[2]);
 }
 void gp_euclidean_2_2_4(const double *A, const double *B, double *C) {
   C[0] += (A[0]*B[5]-A[1]*B[4]+A[2]*B[3]+A[3]*B[2]-A[4]*B[1]+A[5]*B[0]);
 }
 void gp_euclidean_2_3_1(const double *A, const double *B, double *C) {
   C[0] += (-A[2]*B[0]-A[4]*B[1]-A[5]*B[2]);
-  C[1] += -A[5]*B[3];
-  C[2] += A[4]*B[3];
-  C[3] += -A[2]*B[3];
+  C[1] += (A[1]*B[0]+A[3]*B[1]-A[5]*B[3]);
+  C[2] += (-A[0]*B[0]+A[3]*B[2]+A[4]*B[3]);
+  C[3] += (-A[0]*B[1]-A[1]*B[2]-A[2]*B[3]);
 }
 void gp_euclidean_2_3_3(const double *A, const double *B, double *C) {
   C[0] += (A[3]*B[3]-A[4]*B[2]+A[5]*B[1]);
   C[1] += (-A[1]*B[3]+A[2]*B[2]-A[5]*B[0]);
   C[2] += (A[0]*B[3]-A[2]*B[1]+A[4]*B[0]);
+  C[3] += (-A[0]*B[2]+A[1]*B[1]-A[3]*B[0]);
 }
 void gp_euclidean_2_4_2(const double *A, const double *B, double *C) {
   C[0] += -A[5]*B[0];
   C[1] += A[4]*B[0];
+  C[2] += -A[3]*B[0];
   C[3] += -A[2]*B[0];
+  C[4] += A[1]*B[0];
+  C[5] += -A[0]*B[0];
 }
 void gp_euclidean_3_0_3(const double *A, const double *B, double *C) {
   gp_euclidean_1_0_1(A, B, C);
@@ -916,35 +854,42 @@ void gp_euclidean_3_0_3(const double *A, const double *B, double *C) {
 void gp_euclidean_3_1_2(const double *A, const double *B, double *C) {
   C[0] += (A[0]*B[2]+A[1]*B[3]);
   C[1] += (-A[0]*B[1]+A[2]*B[3]);
-  C[2] += A[3]*B[3];
+  C[2] += (A[0]*B[0]+A[3]*B[3]);
   C[3] += (-A[1]*B[1]-A[2]*B[2]);
-  C[4] += -A[3]*B[2];
-  C[5] += A[3]*B[1];
+  C[4] += (A[1]*B[0]-A[3]*B[2]);
+  C[5] += (A[2]*B[0]+A[3]*B[1]);
 }
 void gp_euclidean_3_1_4(const double *A, const double *B, double *C) {
   gp_euclidean_1_3_4(A, B, C);
 }
 void gp_euclidean_3_2_1(const double *A, const double *B, double *C) {
   C[0] += (-A[0]*B[2]-A[1]*B[4]-A[2]*B[5]);
-  C[1] += -A[3]*B[5];
-  C[2] += A[3]*B[4];
-  C[3] += -A[3]*B[2];
+  C[1] += (A[0]*B[1]+A[1]*B[3]-A[3]*B[5]);
+  C[2] += (-A[0]*B[0]+A[2]*B[3]+A[3]*B[4]);
+  C[3] += (-A[1]*B[0]-A[2]*B[1]-A[3]*B[2]);
 }
 void gp_euclidean_3_2_3(const double *A, const double *B, double *C) {
   C[0] += (-A[1]*B[5]+A[2]*B[4]-A[3]*B[3]);
   C[1] += (A[0]*B[5]-A[2]*B[2]+A[3]*B[1]);
   C[2] += (-A[0]*B[4]+A[1]*B[2]-A[3]*B[0]);
+  C[3] += (A[0]*B[3]-A[1]*B[1]+A[2]*B[0]);
 }
 void gp_euclidean_3_3_0(const double *A, const double *B, double *C) {
-  C[0] += -A[3]*B[3];
+  C[0] += (-A[0]*B[0]-A[1]*B[1]-A[2]*B[2]-A[3]*B[3]);
 }
 void gp_euclidean_3_3_2(const double *A, const double *B, double *C) {
   C[0] += (-A[2]*B[3]+A[3]*B[2]);
   C[1] += (A[1]*B[3]-A[3]*B[1]);
+  C[2] += (-A[1]*B[2]+A[2]*B[1]);
   C[3] += (-A[0]*B[3]+A[3]*B[0]);
+  C[4] += (A[0]*B[2]-A[2]*B[0]);
+  C[5] += (-A[0]*B[1]+A[1]*B[0]);
 }
 void gp_euclidean_3_4_1(const double *A, const double *B, double *C) {
   C[0] += A[3]*B[0];
+  C[1] += -A[2]*B[0];
+  C[2] += A[1]*B[0];
+  C[3] += -A[0]*B[0];
 }
 void gp_euclidean_4_0_4(const double *A, const double *B, double *C) {
   gp_euclidean_0_0_0(A, B, C);
@@ -953,191 +898,9 @@ void gp_euclidean_4_1_3(const double *A, const double *B, double *C) {
   C[0] += A[0]*B[3];
   C[1] += -A[0]*B[2];
   C[2] += A[0]*B[1];
+  C[3] += -A[0]*B[0];
 }
 void gp_euclidean_4_2_2(const double *A, const double *B, double *C) {
-  C[0] += -A[0]*B[5];
-  C[1] += A[0]*B[4];
-  C[3] += -A[0]*B[2];
-}
-void gp_euclidean_4_3_1(const double *A, const double *B, double *C) {
-  C[0] += -A[0]*B[3];
-}
-void gp__internal_euclidean_metric__0_0_0(const double *A, const double *B, double *C) {
-  C[0] += A[0]*B[0];
-}
-void gp__internal_euclidean_metric__0_1_1(const double *A, const double *B, double *C) {
-  C[0] += A[0]*B[0];
-  C[1] += A[0]*B[1];
-  C[2] += A[0]*B[2];
-  C[3] += A[0]*B[3];
-}
-void gp__internal_euclidean_metric__0_2_2(const double *A, const double *B, double *C) {
-  C[0] += A[0]*B[0];
-  C[1] += A[0]*B[1];
-  C[2] += A[0]*B[2];
-  C[3] += A[0]*B[3];
-  C[4] += A[0]*B[4];
-  C[5] += A[0]*B[5];
-}
-void gp__internal_euclidean_metric__0_3_3(const double *A, const double *B, double *C) {
-  gp__internal_euclidean_metric__0_1_1(A, B, C);
-}
-void gp__internal_euclidean_metric__0_4_4(const double *A, const double *B, double *C) {
-  gp__internal_euclidean_metric__0_0_0(A, B, C);
-}
-void gp__internal_euclidean_metric__1_0_1(const double *A, const double *B, double *C) {
-  C[0] += A[0]*B[0];
-  C[1] += A[1]*B[0];
-  C[2] += A[2]*B[0];
-  C[3] += A[3]*B[0];
-}
-void gp__internal_euclidean_metric__1_1_0(const double *A, const double *B, double *C) {
-  C[0] += (A[0]*B[0]+A[1]*B[1]+A[2]*B[2]+A[3]*B[3]);
-}
-void gp__internal_euclidean_metric__1_1_2(const double *A, const double *B, double *C) {
-  C[0] += (A[0]*B[1]-A[1]*B[0]);
-  C[1] += (A[0]*B[2]-A[2]*B[0]);
-  C[2] += (A[1]*B[2]-A[2]*B[1]);
-  C[3] += (A[0]*B[3]-A[3]*B[0]);
-  C[4] += (A[1]*B[3]-A[3]*B[1]);
-  C[5] += (A[2]*B[3]-A[3]*B[2]);
-}
-void gp__internal_euclidean_metric__1_2_1(const double *A, const double *B, double *C) {
-  C[0] += (-A[1]*B[0]-A[2]*B[1]-A[3]*B[3]);
-  C[1] += (A[0]*B[0]-A[2]*B[2]-A[3]*B[4]);
-  C[2] += (A[0]*B[1]+A[1]*B[2]-A[3]*B[5]);
-  C[3] += (A[0]*B[3]+A[1]*B[4]+A[2]*B[5]);
-}
-void gp__internal_euclidean_metric__1_2_3(const double *A, const double *B, double *C) {
-  C[0] += (A[0]*B[2]-A[1]*B[1]+A[2]*B[0]);
-  C[1] += (A[0]*B[4]-A[1]*B[3]+A[3]*B[0]);
-  C[2] += (A[0]*B[5]-A[2]*B[3]+A[3]*B[1]);
-  C[3] += (A[1]*B[5]-A[2]*B[4]+A[3]*B[2]);
-}
-void gp__internal_euclidean_metric__1_3_2(const double *A, const double *B, double *C) {
-  C[0] += (A[2]*B[0]+A[3]*B[1]);
-  C[1] += (-A[1]*B[0]+A[3]*B[2]);
-  C[2] += (A[0]*B[0]+A[3]*B[3]);
-  C[3] += (-A[1]*B[1]-A[2]*B[2]);
-  C[4] += (A[0]*B[1]-A[2]*B[3]);
-  C[5] += (A[0]*B[2]+A[1]*B[3]);
-}
-void gp__internal_euclidean_metric__1_3_4(const double *A, const double *B, double *C) {
-  C[0] += (A[0]*B[3]-A[1]*B[2]+A[2]*B[1]-A[3]*B[0]);
-}
-void gp__internal_euclidean_metric__1_4_3(const double *A, const double *B, double *C) {
-  C[0] += -A[3]*B[0];
-  C[1] += A[2]*B[0];
-  C[2] += -A[1]*B[0];
-  C[3] += A[0]*B[0];
-}
-void gp__internal_euclidean_metric__2_0_2(const double *A, const double *B, double *C) {
-  C[0] += A[0]*B[0];
-  C[1] += A[1]*B[0];
-  C[2] += A[2]*B[0];
-  C[3] += A[3]*B[0];
-  C[4] += A[4]*B[0];
-  C[5] += A[5]*B[0];
-}
-void gp__internal_euclidean_metric__2_1_1(const double *A, const double *B, double *C) {
-  C[0] += (A[0]*B[1]+A[1]*B[2]+A[3]*B[3]);
-  C[1] += (-A[0]*B[0]+A[2]*B[2]+A[4]*B[3]);
-  C[2] += (-A[1]*B[0]-A[2]*B[1]+A[5]*B[3]);
-  C[3] += (-A[3]*B[0]-A[4]*B[1]-A[5]*B[2]);
-}
-void gp__internal_euclidean_metric__2_1_3(const double *A, const double *B, double *C) {
-  C[0] += (A[0]*B[2]-A[1]*B[1]+A[2]*B[0]);
-  C[1] += (A[0]*B[3]-A[3]*B[1]+A[4]*B[0]);
-  C[2] += (A[1]*B[3]-A[3]*B[2]+A[5]*B[0]);
-  C[3] += (A[2]*B[3]-A[4]*B[2]+A[5]*B[1]);
-}
-void gp__internal_euclidean_metric__2_2_0(const double *A, const double *B, double *C) {
-  C[0] += (-A[0]*B[0]-A[1]*B[1]-A[2]*B[2]-A[3]*B[3]-A[4]*B[4]-A[5]*B[5]);
-}
-void gp__internal_euclidean_metric__2_2_2(const double *A, const double *B, double *C) {
-  C[0] += (-A[1]*B[2]+A[2]*B[1]-A[3]*B[4]+A[4]*B[3]);
-  C[1] += (A[0]*B[2]-A[2]*B[0]-A[3]*B[5]+A[5]*B[3]);
-  C[2] += (-A[0]*B[1]+A[1]*B[0]-A[4]*B[5]+A[5]*B[4]);
-  C[3] += (A[0]*B[4]+A[1]*B[5]-A[4]*B[0]-A[5]*B[1]);
-  C[4] += (-A[0]*B[3]+A[2]*B[5]+A[3]*B[0]-A[5]*B[2]);
-  C[5] += (-A[1]*B[3]-A[2]*B[4]+A[3]*B[1]+A[4]*B[2]);
-}
-void gp__internal_euclidean_metric__2_2_4(const double *A, const double *B, double *C) {
-  C[0] += (A[0]*B[5]-A[1]*B[4]+A[2]*B[3]+A[3]*B[2]-A[4]*B[1]+A[5]*B[0]);
-}
-void gp__internal_euclidean_metric__2_3_1(const double *A, const double *B, double *C) {
-  C[0] += (-A[2]*B[0]-A[4]*B[1]-A[5]*B[2]);
-  C[1] += (A[1]*B[0]+A[3]*B[1]-A[5]*B[3]);
-  C[2] += (-A[0]*B[0]+A[3]*B[2]+A[4]*B[3]);
-  C[3] += (-A[0]*B[1]-A[1]*B[2]-A[2]*B[3]);
-}
-void gp__internal_euclidean_metric__2_3_3(const double *A, const double *B, double *C) {
-  C[0] += (A[3]*B[3]-A[4]*B[2]+A[5]*B[1]);
-  C[1] += (-A[1]*B[3]+A[2]*B[2]-A[5]*B[0]);
-  C[2] += (A[0]*B[3]-A[2]*B[1]+A[4]*B[0]);
-  C[3] += (-A[0]*B[2]+A[1]*B[1]-A[3]*B[0]);
-}
-void gp__internal_euclidean_metric__2_4_2(const double *A, const double *B, double *C) {
-  C[0] += -A[5]*B[0];
-  C[1] += A[4]*B[0];
-  C[2] += -A[3]*B[0];
-  C[3] += -A[2]*B[0];
-  C[4] += A[1]*B[0];
-  C[5] += -A[0]*B[0];
-}
-void gp__internal_euclidean_metric__3_0_3(const double *A, const double *B, double *C) {
-  gp__internal_euclidean_metric__1_0_1(A, B, C);
-}
-void gp__internal_euclidean_metric__3_1_2(const double *A, const double *B, double *C) {
-  C[0] += (A[0]*B[2]+A[1]*B[3]);
-  C[1] += (-A[0]*B[1]+A[2]*B[3]);
-  C[2] += (A[0]*B[0]+A[3]*B[3]);
-  C[3] += (-A[1]*B[1]-A[2]*B[2]);
-  C[4] += (A[1]*B[0]-A[3]*B[2]);
-  C[5] += (A[2]*B[0]+A[3]*B[1]);
-}
-void gp__internal_euclidean_metric__3_1_4(const double *A, const double *B, double *C) {
-  gp__internal_euclidean_metric__1_3_4(A, B, C);
-}
-void gp__internal_euclidean_metric__3_2_1(const double *A, const double *B, double *C) {
-  C[0] += (-A[0]*B[2]-A[1]*B[4]-A[2]*B[5]);
-  C[1] += (A[0]*B[1]+A[1]*B[3]-A[3]*B[5]);
-  C[2] += (-A[0]*B[0]+A[2]*B[3]+A[3]*B[4]);
-  C[3] += (-A[1]*B[0]-A[2]*B[1]-A[3]*B[2]);
-}
-void gp__internal_euclidean_metric__3_2_3(const double *A, const double *B, double *C) {
-  C[0] += (-A[1]*B[5]+A[2]*B[4]-A[3]*B[3]);
-  C[1] += (A[0]*B[5]-A[2]*B[2]+A[3]*B[1]);
-  C[2] += (-A[0]*B[4]+A[1]*B[2]-A[3]*B[0]);
-  C[3] += (A[0]*B[3]-A[1]*B[1]+A[2]*B[0]);
-}
-void gp__internal_euclidean_metric__3_3_0(const double *A, const double *B, double *C) {
-  C[0] += (-A[0]*B[0]-A[1]*B[1]-A[2]*B[2]-A[3]*B[3]);
-}
-void gp__internal_euclidean_metric__3_3_2(const double *A, const double *B, double *C) {
-  C[0] += (-A[2]*B[3]+A[3]*B[2]);
-  C[1] += (A[1]*B[3]-A[3]*B[1]);
-  C[2] += (-A[1]*B[2]+A[2]*B[1]);
-  C[3] += (-A[0]*B[3]+A[3]*B[0]);
-  C[4] += (A[0]*B[2]-A[2]*B[0]);
-  C[5] += (-A[0]*B[1]+A[1]*B[0]);
-}
-void gp__internal_euclidean_metric__3_4_1(const double *A, const double *B, double *C) {
-  C[0] += A[3]*B[0];
-  C[1] += -A[2]*B[0];
-  C[2] += A[1]*B[0];
-  C[3] += -A[0]*B[0];
-}
-void gp__internal_euclidean_metric__4_0_4(const double *A, const double *B, double *C) {
-  gp__internal_euclidean_metric__0_0_0(A, B, C);
-}
-void gp__internal_euclidean_metric__4_1_3(const double *A, const double *B, double *C) {
-  C[0] += A[0]*B[3];
-  C[1] += -A[0]*B[2];
-  C[2] += A[0]*B[1];
-  C[3] += -A[0]*B[0];
-}
-void gp__internal_euclidean_metric__4_2_2(const double *A, const double *B, double *C) {
   C[0] += -A[0]*B[5];
   C[1] += A[0]*B[4];
   C[2] += -A[0]*B[3];
@@ -1145,14 +908,14 @@ void gp__internal_euclidean_metric__4_2_2(const double *A, const double *B, doub
   C[4] += A[0]*B[1];
   C[5] += -A[0]*B[0];
 }
-void gp__internal_euclidean_metric__4_3_1(const double *A, const double *B, double *C) {
+void gp_euclidean_4_3_1(const double *A, const double *B, double *C) {
   C[0] += -A[0]*B[3];
   C[1] += A[0]*B[2];
   C[2] += -A[0]*B[1];
   C[3] += A[0]*B[0];
 }
-void gp__internal_euclidean_metric__4_4_0(const double *A, const double *B, double *C) {
-  gp__internal_euclidean_metric__0_0_0(A, B, C);
+void gp_euclidean_4_4_0(const double *A, const double *B, double *C) {
+  gp_euclidean_0_0_0(A, B, C);
 }
 void copyGroup_0(const double *A, double *C) {
   C[0] = A[0];
@@ -1488,22 +1251,22 @@ void dual_default_4_0(const double *A, double *C) {
 void undual_default_4_0(const double *A, double *C) {
   dual_default_0_4(A, C);
 }
-void dual__internal_euclidean_metric__0_4(const double *A, double *C) {
+void dual_euclidean_0_4(const double *A, double *C) {
   undual_default_0_4(A, C);
 }
-void undual__internal_euclidean_metric__0_4(const double *A, double *C) {
+void undual_euclidean_0_4(const double *A, double *C) {
   undual_default_0_4(A, C);
 }
-void dual__internal_euclidean_metric__1_3(const double *A, double *C) {
+void dual_euclidean_1_3(const double *A, double *C) {
   C[0] = -A[3];
   C[1] = A[2];
   C[2] = -A[1];
   C[3] = A[0];
 }
-void undual__internal_euclidean_metric__1_3(const double *A, double *C) {
-  dual__internal_euclidean_metric__1_3(A, C);
+void undual_euclidean_1_3(const double *A, double *C) {
+  dual_euclidean_1_3(A, C);
 }
-void dual__internal_euclidean_metric__2_2(const double *A, double *C) {
+void dual_euclidean_2_2(const double *A, double *C) {
   C[0] = -A[5];
   C[1] = A[4];
   C[2] = -A[3];
@@ -1511,22 +1274,22 @@ void dual__internal_euclidean_metric__2_2(const double *A, double *C) {
   C[4] = A[1];
   C[5] = -A[0];
 }
-void undual__internal_euclidean_metric__2_2(const double *A, double *C) {
-  dual__internal_euclidean_metric__2_2(A, C);
+void undual_euclidean_2_2(const double *A, double *C) {
+  dual_euclidean_2_2(A, C);
 }
-void dual__internal_euclidean_metric__3_1(const double *A, double *C) {
+void dual_euclidean_3_1(const double *A, double *C) {
   C[0] = A[3];
   C[1] = -A[2];
   C[2] = A[1];
   C[3] = -A[0];
 }
-void undual__internal_euclidean_metric__3_1(const double *A, double *C) {
-  dual__internal_euclidean_metric__3_1(A, C);
+void undual_euclidean_3_1(const double *A, double *C) {
+  dual_euclidean_3_1(A, C);
 }
-void dual__internal_euclidean_metric__4_0(const double *A, double *C) {
+void dual_euclidean_4_0(const double *A, double *C) {
   undual_default_0_4(A, C);
 }
-void undual__internal_euclidean_metric__4_0(const double *A, double *C) {
+void undual_euclidean_4_0(const double *A, double *C) {
   undual_default_0_4(A, C);
 }
 
@@ -2050,6 +1813,111 @@ mv gp(const mv &a, const mv &b)
   }
   return mv_compress(c, 0.0, 31);
 }
+mv gp_em(const mv &a, const mv &b)
+{
+  double c[16];
+  const double* _a[5];
+  const double* _b[5];
+  a.expand(_a);
+  b.expand(_b);
+  SpacetimeAlgebra::zero_16(c);
+  if (a.gu() & 1) {
+    if (b.gu() & 1) {
+      gp_euclidean_0_0_0(_a[0], _b[0], c + 0);
+    }
+    if (b.gu() & 2) {
+      gp_euclidean_0_1_1(_a[0], _b[1], c + 1);
+    }
+    if (b.gu() & 4) {
+      gp_euclidean_0_2_2(_a[0], _b[2], c + 5);
+    }
+    if (b.gu() & 8) {
+      gp_euclidean_0_3_3(_a[0], _b[3], c + 11);
+    }
+    if (b.gu() & 16) {
+      gp_euclidean_0_4_4(_a[0], _b[4], c + 15);
+    }
+  }
+  if (a.gu() & 2) {
+    if (b.gu() & 1) {
+      gp_euclidean_1_0_1(_a[1], _b[0], c + 1);
+    }
+    if (b.gu() & 2) {
+      gp_euclidean_1_1_0(_a[1], _b[1], c + 0);
+      gp_euclidean_1_1_2(_a[1], _b[1], c + 5);
+    }
+    if (b.gu() & 4) {
+      gp_euclidean_1_2_1(_a[1], _b[2], c + 1);
+      gp_euclidean_1_2_3(_a[1], _b[2], c + 11);
+    }
+    if (b.gu() & 8) {
+      gp_euclidean_1_3_2(_a[1], _b[3], c + 5);
+      gp_euclidean_1_3_4(_a[1], _b[3], c + 15);
+    }
+    if (b.gu() & 16) {
+      gp_euclidean_1_4_3(_a[1], _b[4], c + 11);
+    }
+  }
+  if (a.gu() & 4) {
+    if (b.gu() & 1) {
+      gp_euclidean_2_0_2(_a[2], _b[0], c + 5);
+    }
+    if (b.gu() & 2) {
+      gp_euclidean_2_1_1(_a[2], _b[1], c + 1);
+      gp_euclidean_2_1_3(_a[2], _b[1], c + 11);
+    }
+    if (b.gu() & 4) {
+      gp_euclidean_2_2_0(_a[2], _b[2], c + 0);
+      gp_euclidean_2_2_2(_a[2], _b[2], c + 5);
+      gp_euclidean_2_2_4(_a[2], _b[2], c + 15);
+    }
+    if (b.gu() & 8) {
+      gp_euclidean_2_3_1(_a[2], _b[3], c + 1);
+      gp_euclidean_2_3_3(_a[2], _b[3], c + 11);
+    }
+    if (b.gu() & 16) {
+      gp_euclidean_2_4_2(_a[2], _b[4], c + 5);
+    }
+  }
+  if (a.gu() & 8) {
+    if (b.gu() & 1) {
+      gp_euclidean_3_0_3(_a[3], _b[0], c + 11);
+    }
+    if (b.gu() & 2) {
+      gp_euclidean_3_1_2(_a[3], _b[1], c + 5);
+      gp_euclidean_3_1_4(_a[3], _b[1], c + 15);
+    }
+    if (b.gu() & 4) {
+      gp_euclidean_3_2_1(_a[3], _b[2], c + 1);
+      gp_euclidean_3_2_3(_a[3], _b[2], c + 11);
+    }
+    if (b.gu() & 8) {
+      gp_euclidean_3_3_0(_a[3], _b[3], c + 0);
+      gp_euclidean_3_3_2(_a[3], _b[3], c + 5);
+    }
+    if (b.gu() & 16) {
+      gp_euclidean_3_4_1(_a[3], _b[4], c + 1);
+    }
+  }
+  if (a.gu() & 16) {
+    if (b.gu() & 1) {
+      gp_euclidean_4_0_4(_a[4], _b[0], c + 15);
+    }
+    if (b.gu() & 2) {
+      gp_euclidean_4_1_3(_a[4], _b[1], c + 11);
+    }
+    if (b.gu() & 4) {
+      gp_euclidean_4_2_2(_a[4], _b[2], c + 5);
+    }
+    if (b.gu() & 8) {
+      gp_euclidean_4_3_1(_a[4], _b[3], c + 1);
+    }
+    if (b.gu() & 16) {
+      gp_euclidean_4_4_0(_a[4], _b[4], c + 0);
+    }
+  }
+  return mv_compress(c, 0.0, 31);
+}
 mv rc(const mv &a, const mv &b)
 {
   double c[16];
@@ -2552,6 +2420,9 @@ double norm2_euclidean(const mv &a)
   }
 
   if (a.gu() & 16) { /* group 4 (grade 4) */
+    c[0] = 0.0;
+    gp_euclidean_4_4_0(a.getC() + idx, a.getC() + idx, c);
+    n2 += c[0];
   }
   return n2;
 }
@@ -2662,6 +2533,7 @@ mv sas(const mv &a, const double b, const double c)
 
 
 mv exp(const mv &x, int order /*  = 12 */) {
+  std::cout << "mv exp(" << x.toString("%2.15g") << ", " << order << " /*  = 12 */)" << std::endl;
   unsigned long maxC;
   int scale = 1;
   mv xScaled;
@@ -2672,22 +2544,27 @@ mv exp(const mv &x, int order /*  = 12 */) {
   int i;
 
   // First try special cases: check if (x * x) is scalar
+  std::cout << 1 << std::endl;
   tmp1 = gp(x, x);
   s_x2 = _double(tmp1);
   if ((norm2_returns_scalar(tmp1) - s_x2 * s_x2) < 1E-14) {
     // OK (x * x == ~scalar), so use special cases:
     if (s_x2 < 0.0) {
       a = ::sqrt(-s_x2);
+      std::cout << 2 << std::endl;
       return sas(x, ::sin(a) / a, ::cos(a));
     }
     else if (s_x2 > 0.0) {
       a = ::sqrt(s_x2);
+      std::cout << 3 << std::endl;
       return sas(x, ::sinh(a) / a, ::cosh(a));
     }
     else {
+      std::cout << 4 << std::endl;
       return sas(x, 1.0, 1.0);
     }
   }
+  std::cout << "Reset!" << std::endl;
 
   // else do general series eval . . .
 
@@ -2699,11 +2576,14 @@ mv exp(const mv &x, int order /*  = 12 */) {
   maxC = (unsigned long)x.largestCoordinate(); // unsigned type is fine, because largest coordinate is absolute
   scale = 1;
   if (maxC > 1) scale <<= 1;
+  std::cout << 3 << std::endl;
   while (maxC)
   {
+    std::cout << maxC << " " << scale << std::endl;
     maxC >>= 1;
     scale <<= 1;
   }
+  std::cout << "4\n\n" << std::endl;
 
   // scale
   xScaled = gp(x, 1.0 / (double)scale);
@@ -2711,20 +2591,24 @@ mv exp(const mv &x, int order /*  = 12 */) {
   // taylor series approximation
   xPow1 = 1.0;
   for (i = 1; i <= order; i++) {
+    std::cout << result1->toString("%2.15g") << "  " << result2->toString("%2.15g") << std::endl;
     xPow2 = gp(xPow1, xScaled);
     xPow1 = gp(xPow2, 1.0 / (double)i);
 
     *result2 = add(*result1, xPow1); // result2 = result1 + xPow1
     std::swap(result1, result2); // result is always in 'result1' at end of loop
     }
+  std::cout << "5\n\n" << std::endl;
 
   // undo scaling
   while (scale > 1)
   {
+    std::cout << result1->toString("%2.15g") << "  " << result2->toString("%2.15g") << std::endl;
     *result2 = gp(*result1, *result1);
     std::swap(result1, result2); // result is always in 'result1' at end of loop
     scale >>= 1;
   }
+  std::cout << "6\n" << result1->toString("%2.15g") << "  " << result2->toString("%2.15g") << std::endl;
 
     return *result1;
 } // end of exp()
@@ -2868,6 +2752,76 @@ spinor exp(const spinor &x, int order /*  = 12 */) {
 
     return *result1;
 } // end of exp()
+
+
+
+mv exp_em(const mv &x, int order /*  = 12 */) {
+  unsigned long maxC;
+  int scale = 1;
+  mv xScaled;
+  mv tmp1, tmp2; // temp mv used for various purposes
+  mv xPow1, xPow2;
+  mv *result1 = &tmp1, *result2 = &tmp2;
+  double s_x2, a;
+  int i;
+
+  // First try special cases: check if (x * x) is scalar
+  tmp1 = gp_em(x, x);
+  s_x2 = _double(tmp1);
+  if ((norm2_euclidean_returns_scalar(tmp1) - s_x2 * s_x2) < 1E-14) {
+    // OK (x * x == ~scalar), so use special cases:
+    if (s_x2 < 0.0) {
+      a = ::sqrt(-s_x2);
+      return sas(x, ::sin(a) / a, ::cos(a));
+    }
+    else if (s_x2 > 0.0) {
+      a = ::sqrt(s_x2);
+      return sas(x, ::sinh(a) / a, ::cosh(a));
+    }
+    else {
+      return sas(x, 1.0, 1.0);
+    }
+  }
+
+  // else do general series eval . . .
+
+  // result = 1 + ....
+  *result1 = 1.0;
+  if (order == 0) return *result1;
+
+  // find scale (power of 2) such that its norm is < 1
+  maxC = (unsigned long)x.largestCoordinate(); // unsigned type is fine, because largest coordinate is absolute
+  scale = 1;
+  if (maxC > 1) scale <<= 1;
+  while (maxC)
+  {
+    maxC >>= 1;
+    scale <<= 1;
+  }
+
+  // scale
+  xScaled = gp(x, 1.0 / (double)scale);
+
+  // taylor series approximation
+  xPow1 = 1.0;
+  for (i = 1; i <= order; i++) {
+    xPow2 = gp_em(xPow1, xScaled);
+    xPow1 = gp(xPow2, 1.0 / (double)i);
+
+    *result2 = add(*result1, xPow1); // result2 = result1 + xPow1
+    std::swap(result1, result2); // result is always in 'result1' at end of loop
+    }
+
+  // undo scaling
+  while (scale > 1)
+  {
+    *result2 = gp_em(*result1, *result1);
+    std::swap(result1, result2); // result is always in 'result1' at end of loop
+    scale >>= 1;
+  }
+
+    return *result1;
+} // end of exp_em()
 
 
 

@@ -159,7 +159,7 @@
   <function name="sas" arg1="anyssmv" arg2="double" arg3="double"/> <!-- Needed internally for the following -->
   <function name="log" arg1="mv3" optionType="euclidean" metric="Euclidean"/> <!-- log is only implemented for 3d Euclidean multivectors -->
   <function name="log" arg1="spinor3" optionType="euclidean" metric="Euclidean"/> <!-- log is only implemented for 3d Euclidean multivectors -->
-  <function name="exp" arg1="anyssmv"/>
+  <function name="exp" arg1="anyssmv" optionSquare="1"/>
   <function name="sin" arg1="anyssmv"/>
   <function name="cos" arg1="anyssmv"/>
   <function name="sinh" arg1="anyssmv"/>
