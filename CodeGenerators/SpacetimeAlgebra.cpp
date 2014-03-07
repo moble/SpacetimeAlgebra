@@ -6,7 +6,6 @@
 */
 #include <stdio.h>
 #include <utility> // for std::swap
-#include <iostream>
 #include "SpacetimeAlgebra.hpp"
 namespace SpacetimeAlgebra {
 
@@ -1813,111 +1812,6 @@ mv gp(const mv &a, const mv &b)
   }
   return mv_compress(c, 0.0, 31);
 }
-mv gp_em(const mv &a, const mv &b)
-{
-  double c[16];
-  const double* _a[5];
-  const double* _b[5];
-  a.expand(_a);
-  b.expand(_b);
-  SpacetimeAlgebra::zero_16(c);
-  if (a.gu() & 1) {
-    if (b.gu() & 1) {
-      gp_euclidean_0_0_0(_a[0], _b[0], c + 0);
-    }
-    if (b.gu() & 2) {
-      gp_euclidean_0_1_1(_a[0], _b[1], c + 1);
-    }
-    if (b.gu() & 4) {
-      gp_euclidean_0_2_2(_a[0], _b[2], c + 5);
-    }
-    if (b.gu() & 8) {
-      gp_euclidean_0_3_3(_a[0], _b[3], c + 11);
-    }
-    if (b.gu() & 16) {
-      gp_euclidean_0_4_4(_a[0], _b[4], c + 15);
-    }
-  }
-  if (a.gu() & 2) {
-    if (b.gu() & 1) {
-      gp_euclidean_1_0_1(_a[1], _b[0], c + 1);
-    }
-    if (b.gu() & 2) {
-      gp_euclidean_1_1_0(_a[1], _b[1], c + 0);
-      gp_euclidean_1_1_2(_a[1], _b[1], c + 5);
-    }
-    if (b.gu() & 4) {
-      gp_euclidean_1_2_1(_a[1], _b[2], c + 1);
-      gp_euclidean_1_2_3(_a[1], _b[2], c + 11);
-    }
-    if (b.gu() & 8) {
-      gp_euclidean_1_3_2(_a[1], _b[3], c + 5);
-      gp_euclidean_1_3_4(_a[1], _b[3], c + 15);
-    }
-    if (b.gu() & 16) {
-      gp_euclidean_1_4_3(_a[1], _b[4], c + 11);
-    }
-  }
-  if (a.gu() & 4) {
-    if (b.gu() & 1) {
-      gp_euclidean_2_0_2(_a[2], _b[0], c + 5);
-    }
-    if (b.gu() & 2) {
-      gp_euclidean_2_1_1(_a[2], _b[1], c + 1);
-      gp_euclidean_2_1_3(_a[2], _b[1], c + 11);
-    }
-    if (b.gu() & 4) {
-      gp_euclidean_2_2_0(_a[2], _b[2], c + 0);
-      gp_euclidean_2_2_2(_a[2], _b[2], c + 5);
-      gp_euclidean_2_2_4(_a[2], _b[2], c + 15);
-    }
-    if (b.gu() & 8) {
-      gp_euclidean_2_3_1(_a[2], _b[3], c + 1);
-      gp_euclidean_2_3_3(_a[2], _b[3], c + 11);
-    }
-    if (b.gu() & 16) {
-      gp_euclidean_2_4_2(_a[2], _b[4], c + 5);
-    }
-  }
-  if (a.gu() & 8) {
-    if (b.gu() & 1) {
-      gp_euclidean_3_0_3(_a[3], _b[0], c + 11);
-    }
-    if (b.gu() & 2) {
-      gp_euclidean_3_1_2(_a[3], _b[1], c + 5);
-      gp_euclidean_3_1_4(_a[3], _b[1], c + 15);
-    }
-    if (b.gu() & 4) {
-      gp_euclidean_3_2_1(_a[3], _b[2], c + 1);
-      gp_euclidean_3_2_3(_a[3], _b[2], c + 11);
-    }
-    if (b.gu() & 8) {
-      gp_euclidean_3_3_0(_a[3], _b[3], c + 0);
-      gp_euclidean_3_3_2(_a[3], _b[3], c + 5);
-    }
-    if (b.gu() & 16) {
-      gp_euclidean_3_4_1(_a[3], _b[4], c + 1);
-    }
-  }
-  if (a.gu() & 16) {
-    if (b.gu() & 1) {
-      gp_euclidean_4_0_4(_a[4], _b[0], c + 15);
-    }
-    if (b.gu() & 2) {
-      gp_euclidean_4_1_3(_a[4], _b[1], c + 11);
-    }
-    if (b.gu() & 4) {
-      gp_euclidean_4_2_2(_a[4], _b[2], c + 5);
-    }
-    if (b.gu() & 8) {
-      gp_euclidean_4_3_1(_a[4], _b[3], c + 1);
-    }
-    if (b.gu() & 16) {
-      gp_euclidean_4_4_0(_a[4], _b[4], c + 0);
-    }
-  }
-  return mv_compress(c, 0.0, 31);
-}
 mv rc(const mv &a, const mv &b)
 {
   double c[16];
@@ -2533,7 +2427,6 @@ mv sas(const mv &a, const double b, const double c)
 
 
 mv exp(const mv &x, int order /*  = 12 */) {
-  std::cout << "mv exp(" << x.toString("%2.15g") << ", " << order << " /*  = 12 */)" << std::endl;
   unsigned long maxC;
   int scale = 1;
   mv xScaled;
@@ -2544,27 +2437,22 @@ mv exp(const mv &x, int order /*  = 12 */) {
   int i;
 
   // First try special cases: check if (x * x) is scalar
-  std::cout << 1 << std::endl;
   tmp1 = gp(x, x);
   s_x2 = _double(tmp1);
   if ((norm2_returns_scalar(tmp1) - s_x2 * s_x2) < 1E-14) {
     // OK (x * x == ~scalar), so use special cases:
     if (s_x2 < 0.0) {
       a = ::sqrt(-s_x2);
-      std::cout << 2 << std::endl;
       return sas(x, ::sin(a) / a, ::cos(a));
     }
     else if (s_x2 > 0.0) {
       a = ::sqrt(s_x2);
-      std::cout << 3 << std::endl;
       return sas(x, ::sinh(a) / a, ::cosh(a));
     }
     else {
-      std::cout << 4 << std::endl;
       return sas(x, 1.0, 1.0);
     }
   }
-  std::cout << "Reset!" << std::endl;
 
   // else do general series eval . . .
 
@@ -2576,14 +2464,11 @@ mv exp(const mv &x, int order /*  = 12 */) {
   maxC = (unsigned long)x.largestCoordinate(); // unsigned type is fine, because largest coordinate is absolute
   scale = 1;
   if (maxC > 1) scale <<= 1;
-  std::cout << 3 << std::endl;
   while (maxC)
   {
-    std::cout << maxC << " " << scale << std::endl;
     maxC >>= 1;
     scale <<= 1;
   }
-  std::cout << "4\n\n" << std::endl;
 
   // scale
   xScaled = gp(x, 1.0 / (double)scale);
@@ -2591,24 +2476,20 @@ mv exp(const mv &x, int order /*  = 12 */) {
   // taylor series approximation
   xPow1 = 1.0;
   for (i = 1; i <= order; i++) {
-    std::cout << result1->toString("%2.15g") << "  " << result2->toString("%2.15g") << std::endl;
     xPow2 = gp(xPow1, xScaled);
     xPow1 = gp(xPow2, 1.0 / (double)i);
 
     *result2 = add(*result1, xPow1); // result2 = result1 + xPow1
     std::swap(result1, result2); // result is always in 'result1' at end of loop
     }
-  std::cout << "5\n\n" << std::endl;
 
   // undo scaling
   while (scale > 1)
   {
-    std::cout << result1->toString("%2.15g") << "  " << result2->toString("%2.15g") << std::endl;
     *result2 = gp(*result1, *result1);
     std::swap(result1, result2); // result is always in 'result1' at end of loop
     scale >>= 1;
   }
-  std::cout << "6\n" << result1->toString("%2.15g") << "  " << result2->toString("%2.15g") << std::endl;
 
     return *result1;
 } // end of exp()
@@ -2752,76 +2633,6 @@ spinor exp(const spinor &x, int order /*  = 12 */) {
 
     return *result1;
 } // end of exp()
-
-
-
-mv exp_em(const mv &x, int order /*  = 12 */) {
-  unsigned long maxC;
-  int scale = 1;
-  mv xScaled;
-  mv tmp1, tmp2; // temp mv used for various purposes
-  mv xPow1, xPow2;
-  mv *result1 = &tmp1, *result2 = &tmp2;
-  double s_x2, a;
-  int i;
-
-  // First try special cases: check if (x * x) is scalar
-  tmp1 = gp_em(x, x);
-  s_x2 = _double(tmp1);
-  if ((norm2_euclidean_returns_scalar(tmp1) - s_x2 * s_x2) < 1E-14) {
-    // OK (x * x == ~scalar), so use special cases:
-    if (s_x2 < 0.0) {
-      a = ::sqrt(-s_x2);
-      return sas(x, ::sin(a) / a, ::cos(a));
-    }
-    else if (s_x2 > 0.0) {
-      a = ::sqrt(s_x2);
-      return sas(x, ::sinh(a) / a, ::cosh(a));
-    }
-    else {
-      return sas(x, 1.0, 1.0);
-    }
-  }
-
-  // else do general series eval . . .
-
-  // result = 1 + ....
-  *result1 = 1.0;
-  if (order == 0) return *result1;
-
-  // find scale (power of 2) such that its norm is < 1
-  maxC = (unsigned long)x.largestCoordinate(); // unsigned type is fine, because largest coordinate is absolute
-  scale = 1;
-  if (maxC > 1) scale <<= 1;
-  while (maxC)
-  {
-    maxC >>= 1;
-    scale <<= 1;
-  }
-
-  // scale
-  xScaled = gp(x, 1.0 / (double)scale);
-
-  // taylor series approximation
-  xPow1 = 1.0;
-  for (i = 1; i <= order; i++) {
-    xPow2 = gp_em(xPow1, xScaled);
-    xPow1 = gp(xPow2, 1.0 / (double)i);
-
-    *result2 = add(*result1, xPow1); // result2 = result1 + xPow1
-    std::swap(result1, result2); // result is always in 'result1' at end of loop
-    }
-
-  // undo scaling
-  while (scale > 1)
-  {
-    *result2 = gp_em(*result1, *result1);
-    std::swap(result1, result2); // result is always in 'result1' at end of loop
-    scale >>= 1;
-  }
-
-    return *result1;
-} // end of exp_em()
 
 
 

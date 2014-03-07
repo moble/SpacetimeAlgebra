@@ -156,14 +156,34 @@
   <function name="versorInverse" arg1="anyssmv"/>
 
   <!-- Transcendental functions -->
-  <function name="sas" arg1="anyssmv" arg2="double" arg3="double"/> <!-- Needed internally for the following -->
+  <function name="sas" arg1="anysmv" arg2="double" arg3="double"/> <!-- Needed internally for the following -->
   <function name="log" arg1="mv3" optionType="euclidean" metric="Euclidean"/> <!-- log is only implemented for 3d Euclidean multivectors -->
   <function name="log" arg1="spinor3" optionType="euclidean" metric="Euclidean"/> <!-- log is only implemented for 3d Euclidean multivectors -->
-  <function name="exp" arg1="anyssmv" optionSquare="1"/>
-  <function name="sin" arg1="anyssmv"/>
-  <function name="cos" arg1="anyssmv"/>
-  <function name="sinh" arg1="anyssmv"/>
-  <function name="cosh" arg1="anyssmv"/>
+  <function name="exp" arg1="mv"/>
+  <function name="exp" arg1="bivector"/>
+  <function name="exp" arg1="bivector3" optionSquare="-1"/>
+  <function name="exp" arg1="spinor"/>
+  <function name="exp" arg1="spinor3" optionSquare="-1"/>
+  <function name="sin" arg1="mv"/>
+  <function name="sin" arg1="bivector"/>
+  <function name="sin" arg1="bivector3" optionSquare="-1"/>
+  <function name="sin" arg1="spinor"/>
+  <function name="sin" arg1="spinor3" optionSquare="-1"/>
+  <function name="cos" arg1="mv"/>
+  <function name="cos" arg1="bivector"/>
+  <function name="cos" arg1="bivector3" optionSquare="-1"/>
+  <function name="cos" arg1="spinor"/>
+  <function name="cos" arg1="spinor3" optionSquare="-1"/>
+  <function name="sinh" arg1="mv"/>
+  <function name="sinh" arg1="bivector"/>
+  <function name="sinh" arg1="bivector3" optionSquare="-1"/>
+  <function name="sinh" arg1="spinor"/>
+  <function name="sinh" arg1="spinor3" optionSquare="-1"/>
+  <function name="cosh" arg1="mv"/>
+  <function name="cosh" arg1="bivector"/>
+  <function name="cosh" arg1="bivector3" optionSquare="-1"/>
+  <function name="cosh" arg1="spinor"/>
+  <function name="cosh" arg1="spinor3" optionSquare="-1"/>
 
   <!-- Spinor operations -->
   <function name="applyVersor" arg1="spinor" argName1="R" arg2="vector" argName2="v"/>

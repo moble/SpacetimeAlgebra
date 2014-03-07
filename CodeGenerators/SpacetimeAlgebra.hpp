@@ -2843,8 +2843,6 @@ mv gp(const mv &a, const mv &b);
 spinor gp(const spinor &a, const spinor &b);
 /// Returns geometric product of spinor3 and spinor3.
 spinor3 gp(const spinor3 &a, const spinor3 &b);
-/// Returns geometric product of mv and mv.
-mv gp_em(const mv &a, const mv &b);
 /// Returns right contraction of mv and mv.
 mv rc(const mv &a, const mv &b);
 /// Returns left contraction of mv and mv.
@@ -3081,10 +3079,6 @@ spinor3 exp(const spinor3 &x, int order = 12);
 /** Computes exp of spinor.
  */
 spinor exp(const spinor &x, int order = 12);
-
-/** Computes exp of mv.
- */
-mv exp_em(const mv &x, int order = 12);
 
 /** Computes sin of mv.
  */
