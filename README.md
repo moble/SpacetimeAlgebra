@@ -7,6 +7,8 @@ The geometric algebra of spacetime, now with `c++` *and* `python`!
 is wrong in some cases.  It appears to be safe for bivector blades,
 but it is not safe for general bivectors.  In particular, it appears
 that anything that should result in a pseudoscalar component is wrong.
+I expect that similar errors are also present in the sin, cos, sinh,
+and cosh functions.
 
 This collection of code contains C++ and python interfaces to code
 expressing the geometric algebra of spacetime.  The core of this code
