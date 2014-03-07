@@ -116,6 +116,8 @@ cdef class mv:
         return self.thisptr.toString("%2.15g")
     def __str__(mv self):
         return self.thisptr.toString("%2.15g")
+    cpdef toString(mv self, char* format):
+        return self.thisptr.toString(format)
     ## Easier operators
     def __add__(mv self, mv other): # +
         cdef mv c=mv()
