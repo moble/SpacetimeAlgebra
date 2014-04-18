@@ -1481,7 +1481,7 @@ public:
   /// are silently dropped.
   /// \param filler This argument can have any value; it's role
   /// is only to prevent the compiler from using this constructor as a converter.
-  inline vector(mv &A, int filler) {set(A);}
+  inline vector(const mv &A, int filler) {set(A);}
 
   /// Constructs a new vector. Coordinate values come from 'A'.
   inline vector(const CoordinateOrder co, const double A[4]) {set(co, A);}
