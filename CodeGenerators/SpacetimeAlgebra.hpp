@@ -2491,7 +2491,7 @@ extern gamma_0_t gamma_0;
 extern gamma_1_t gamma_1;
 extern gamma_2_t gamma_2;
 extern gamma_3_t gamma_3;
-extern I_t I;
+extern I_t psI;
 extern I3_t I3;
 
 
